@@ -398,6 +398,165 @@ The cheapest option is whichever one you'll actually execute.
 
 [Request a free keyword gap analysis](/audit) and we'll show you the specific opportunities in your space — no pitch, no commitment.`,
   },
+  {
+    slug: "how-much-does-seo-cost-for-saas",
+    title: "How Much Does SEO Cost for SaaS in 2026? (Honest Pricing Breakdown)",
+    description: "Real SaaS SEO pricing: agencies, freelancers, tools, and AI services. What you actually get at each price point and how to avoid overpaying.",
+    date: "2026-02-11",
+    readTime: 7,
+    category: "Pricing",
+    content: `SEO pricing for SaaS is wildly inconsistent. Two companies with the same traffic goals can be quoted $1,000 or $15,000 a month — and get nearly identical results. Here's what actually drives the cost, and what's worth paying for.
+
+## The four tiers of SaaS SEO pricing
+
+**1. DIY tools — $0 to $300/month**
+
+Tools like Ahrefs, Surfer, and Byword give you the data and the drafting. But they don't do the work. You still need someone to research keywords, build a calendar, write, optimize, and publish. If nobody on your team owns that, the subscription becomes an expensive unused license.
+
+**2. Freelancers — $1,000 to $5,000/month**
+
+A good SEO freelancer produces 2–8 posts a month. Quality varies enormously, and you're dependent on one person's availability. Great freelancers are hard to find and often booked out.
+
+**3. Agencies — $5,000 to $15,000/month**
+
+Agencies charge for a team, an office, and a brand. You typically get 2–4 posts a month, a monthly strategy call, and a junior account manager. The ramp time alone (30–60 days) burns budget before any content ships.
+
+**4. AI-powered services — $1,000 to $3,500/month**
+
+AI content services sit between tools and agencies: they produce at agency volume and quality, but at tool-like prices, because the "team" is automated. You get 4–16 posts a month, keyword research, and reporting — without the junior-writer hand-off.
+
+## What the price actually buys you
+
+| Tier | Cost/mo | Posts/mo | Strategy included | Ramp time |
+|------|---------|----------|-------------------|-----------|
+| DIY tools | $0–300 | 0 (you do it) | No | N/A |
+| Freelancer | $1–5k | 2–8 | Sometimes | 1–2 wks |
+| Agency | $5–15k | 2–4 | Yes | 30–60 days |
+| AI service | $1–3.5k | 4–16 | Yes | 24 hrs |
+
+## The hidden costs most founders miss
+
+- **Ramp time**: every month before content ships is a month you're not compounding.
+- **Management overhead**: agencies and freelancers need briefing, review, and chasing.
+- **Poor targeting**: paying for posts that rank for nothing is worse than paying for nothing.
+
+## How to get the best ROI
+
+- Match your spend to your execution capacity, not your ambition.
+- Demand a content calendar *before* you pay — if they can't show which keywords they'll target and why, walk away.
+- Compare on output volume *and* strategy, not just headline price.
+
+The cheapest option is the one you'll actually execute. For most lean SaaS teams, that's an AI-powered service that ships targeted content weekly without eating founder time.
+
+[Get a free keyword gap analysis](/audit) and see exactly what SEO should cost for your niche.`,
+  },
+  {
+    slug: "programmatic-seo-for-saas",
+    title: "Programmatic SEO for SaaS: A Practical Guide (With Examples)",
+    description: "How SaaS companies use programmatic SEO to build thousands of ranking pages. The frameworks, the risks, and when it's actually worth doing.",
+    date: "2026-02-10",
+    readTime: 9,
+    category: "Strategy",
+    content: `Programmatic SEO (pSEO) is how SaaS companies go from dozens of pages to thousands of ranking pages — fast. It's the difference between a blog that trickles traffic and a growth engine that compounds monthly.
+
+## What programmatic SEO actually is
+
+Programmatic SEO means generating many pages from a template, where the variable is data — not creative writing. Instead of hand-writing "best CRM for dentists," you generate "best CRM for [every vertical]" from a database.
+
+The classic example: Zapier's app directory, which ranks for thousands of "X to Y integration" queries. Each page follows the same template; only the app names change.
+
+## When pSEO works (and when it doesn't)
+
+**Works when:**
+- Your audience searches for the same query with different modifiers ("for dentists", "for lawyers", "for startups")
+- You have (or can source) the data to make each page genuinely different
+- Each page solves a real, distinct search intent
+
+**Fails when:**
+- Pages differ only by keyword stuffing, with no real data
+- The template produces thin, near-duplicate content
+- You're targeting keywords with no buyer intent
+
+Google has gotten good at detecting "pSEO spam" — thousands of identical pages that add nothing. The winning play is **programmatic + genuine**: templates backed by real data that answers the query.
+
+## The three frameworks that work
+
+**1. Use-case pages** — "How to [task] with [product]" for every task your ICP performs.
+
+**2. Integration / comparison pages** — "X vs Y" and "[Product] + [Tool] integration" at scale.
+
+**3. Template directories** — "[Category] templates" where each template is downloadable and distinct.
+
+## The risks
+
+- **Thin content penalty**: if pages don't each answer a unique query, they won't rank and may drag down your domain.
+- **Index bloat**: 5,000 low-value URLs can waste crawl budget.
+- **Maintenance**: data-driven pages go stale and need refreshing.
+
+## A safer starting point
+
+Before going programmatic, prove the unit economics on 20–50 hand-built pages. If "best CRM for dentists" and "best CRM for lawyers" both convert, the pattern is proven — then scale it.
+
+Programmatic SEO is a force multiplier, not a shortcut. The companies that win pair it with genuinely useful content and strong internal linking.
+
+[Request a free SEO audit](/audit) and we'll identify which programmatic opportunities fit your product.`,
+  },
+  {
+    slug: "saas-seo-mistakes",
+    title: "9 SEO Mistakes SaaS Startups Make (And How to Fix Them)",
+    description: "The most common SEO mistakes SaaS founders make — from writing about features to ignoring internal links — and exactly how to fix each one.",
+    date: "2026-02-09",
+    readTime: 8,
+    category: "Strategy",
+    content: `Most SaaS startups don't fail at SEO because they lack talent. They fail because they repeat the same nine mistakes — all of which are fixable in a quarter.
+
+## 1. Writing about your product instead of your buyer's problems
+
+"Introducing our new integrations" ranks for nothing, because nobody searches for it. "How to automate employee onboarding" ranks for thousands of monthly searches. Shift from announcements to answers.
+
+## 2. Targeting keywords with no buying intent
+
+Ranking #1 for "what is a CRM" won't produce trials. Ranking for "best CRM for agencies" will. Prioritize keywords where the searcher is evaluating a purchase.
+
+## 3. Publishing sporadically
+
+One post in January and three in June won't compound. Google rewards consistency, and topical authority takes months of steady output.
+
+## 4. Ignoring internal linking
+
+Every post should link to related posts and to your most important product pages. Internal links distribute authority and help Google understand your site's structure.
+
+## 5. Neglecting on-page fundamentals
+
+Title tags, meta descriptions, H1/H2 structure, and schema markup are table stakes. A great article with a bad title tag underperforms a mediocre one with a good one.
+
+## 6. Competing on head terms you can't win
+
+A new startup can't outrank Salesforce for "CRM software." Target long-tail, buyer-intent keywords you can realistically win in 90 days, then expand.
+
+## 7. Not tracking rankings and traffic
+
+If you don't measure, you can't iterate. Track which pages rank, which need updates, and where the next opportunities are — monthly.
+
+## 8. Treating content as a one-time task
+
+Content decays. Rankings drop, competitors publish better pieces, and search intent shifts. Winning programs refresh and update top pages continuously.
+
+## 9. Doing it all manually with no system
+
+Even a small content program is a recurring operational burden. Without a repeatable process — research, calendar, production, optimization, reporting — it stalls the moment the founder gets busy.
+
+## The fix, in order
+
+- Map your buyer's actual search queries (keyword gap analysis)
+- Build a 90-day content calendar ordered by opportunity
+- Ship consistently, with proper on-page and internal linking
+- Track and iterate monthly
+
+Every one of these mistakes compounds in the wrong direction when ignored — and in the right direction when fixed.
+
+[Get a free keyword gap analysis](/audit) to see exactly which of these mistakes your site is making today.`,
+  },
 ]
 
 export function getPost(slug: string): Post | undefined {

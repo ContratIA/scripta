@@ -4,48 +4,48 @@ import { motion, useInView } from "framer-motion"
 import { TrendingUp, Zap, DollarSign, Clock } from "lucide-react"
 
 const stats = [
-  { value: "3.2×",     label: "Avg. traffic increase",       Icon: TrendingUp,  color: "text-indigo-400",  bg: "from-indigo-500/10 to-violet-600/5"  },
+  { value: "3.2×",     label: "Avg. traffic increase",       Icon: TrendingUp,  color: "text-[#2997ff]",  bg: "from-[#2997ff]/10 to-[#006edb]/5"  },
   { value: "67 days",  label: "Avg. to first-page ranking",  Icon: Zap,         color: "text-emerald-400", bg: "from-emerald-500/10 to-green-600/5"  },
-  { value: "80%",      label: "Cost savings vs. agency",     Icon: DollarSign,  color: "text-violet-400",  bg: "from-violet-500/10 to-purple-600/5"  },
+  { value: "80%",      label: "Cost savings vs. agency",     Icon: DollarSign,  color: "text-[#2997ff]",  bg: "from-[#2997ff]/10 to-[#006edb]/5"  },
   { value: "14 days",  label: "First content goes live",     Icon: Clock,       color: "text-sky-400",     bg: "from-sky-500/10 to-blue-600/5"       },
 ]
 
 const cases = [
   {
-    company: "Invoca",
-    category: "Call Analytics SaaS",
-    headline: "+43% organic sessions",
-    story: "Targeted mid-funnel keywords competitors ignored. 8-month compounding content strategy generated $1.5M in attributed pipeline.",
-    result: "+$1.5M",
-    resultLabel: "attributed pipeline",
+    company: "Call-analytics SaaS",
+    category: "Illustrative benchmark",
+    headline: "+43% organic sessions in 8 months",
+    story: "A call-analytics platform targeted mid-funnel keywords competitors ignored. The compounding content strategy attributed roughly $1.5M in pipeline.",
+    result: "+43%",
+    resultLabel: "organic sessions",
     color: "indigo",
     span: "md:col-span-4",
   },
   {
-    company: "Omnius",
-    category: "Revenue Operations",
+    company: "Revenue-ops platform",
+    category: "Illustrative benchmark",
     headline: "67 → 2,100 signups/mo",
-    story: "Replaced a $12k/month agency. 110% organic growth in 6 months at 1/8th the cost.",
+    story: "Replaced a $12k/month agency with AI content. 110% organic growth in 6 months at roughly 1/8th the cost.",
     result: "31×",
     resultLabel: "signup growth",
     color: "emerald",
     span: "md:col-span-2",
   },
   {
-    company: "Fintech Client",
-    category: "B2B Fintech SaaS",
-    headline: "+22% revenue/session",
-    story: "Buyers arrived pre-qualified via SEO — already educated, shorter sales cycles, higher LTV.",
+    company: "B2B fintech SaaS",
+    category: "Illustrative benchmark",
+    headline: "+22% revenue per session",
+    story: "Buyers arrived pre-qualified via SEO — already educated, shorter sales cycles, higher lifetime value.",
     result: "22%",
     resultLabel: "revenue/session",
     color: "violet",
     span: "md:col-span-2",
   },
   {
-    company: "DevTools Co.",
-    category: "Developer Tooling",
-    headline: "0 → 18k organic/mo",
-    story: "Programmatic SEO across 400+ use-case pages. Content clusters built around ICP jobs-to-be-done.",
+    company: "Developer tooling",
+    category: "Illustrative benchmark",
+    headline: "0 → 18k organic visits/mo",
+    story: "Programmatic SEO across 400+ use-case pages. Content clusters built around the ICP's jobs-to-be-done.",
     result: "18k",
     resultLabel: "organic visitors",
     color: "sky",
@@ -54,9 +54,9 @@ const cases = [
 ]
 
 const colorMap: Record<string, { badge: string; num: string; border: string; glow: string }> = {
-  indigo:  { badge: "bg-indigo-500/10 text-indigo-400 border-indigo-500/15",  num: "text-indigo-400",  border: "hover:border-indigo-500/25",  glow: "rgba(99,102,241,0.08)"  },
+  indigo:  { badge: "bg-[#2997ff]/10 text-[#2997ff] border-[#2997ff]/15",  num: "text-[#2997ff]",  border: "hover:border-[#2997ff]/25",  glow: "rgba(10,132,255,0.08)"  },
   emerald: { badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/15", num: "text-emerald-400", border: "hover:border-emerald-500/25", glow: "rgba(16,185,129,0.08)" },
-  violet:  { badge: "bg-violet-500/10 text-violet-400 border-violet-500/15",   num: "text-violet-400",  border: "hover:border-violet-500/25",  glow: "rgba(139,92,246,0.08)"  },
+  violet:  { badge: "bg-[#2997ff]/10 text-[#2997ff] border-[#2997ff]/15",   num: "text-[#2997ff]",  border: "hover:border-[#2997ff]/25",  glow: "rgba(10,132,255,0.08)"  },
   sky:     { badge: "bg-sky-500/10 text-sky-400 border-sky-500/15",             num: "text-sky-400",     border: "hover:border-sky-500/25",     glow: "rgba(14,165,233,0.08)"  },
 }
 
@@ -66,18 +66,18 @@ const stagger = {
 }
 const fadeItem = {
   hidden: { opacity: 0, y: 24 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 }
 
 export default function Results() {
   const ref = useRef<HTMLDivElement>(null)
 
   return (
-    <section id="results" ref={ref} className="py-32 px-6 bg-[#06060F] relative overflow-hidden">
+    <section id="results" ref={ref} className="py-40 px-6 bg-[#000000] relative overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 80% 40% at 50% 50%, rgba(99,102,241,0.04) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(ellipse 80% 40% at 50% 50%, rgba(10,132,255,0.04) 0%, transparent 70%)" }}
       />
 
       <div className="relative max-w-6xl mx-auto">
@@ -90,15 +90,28 @@ export default function Results() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-[11px] text-indigo-400/70 uppercase tracking-[0.22em] mb-4 font-medium">Proven results</p>
-          <h2 className="text-[46px] md:text-[54px] font-bold tracking-[-0.03em] leading-[1.02] text-white mb-5">
-            Real companies.<br />
-            <span className="text-gradient">Real compound growth.</span>
+          <p className="text-[11px] text-[#2997ff]/70 uppercase tracking-[0.22em] mb-4 font-medium">The compounding math</p>
+          <h2 className="text-[56px] md:text-[72px] font-semibold tracking-[-0.02em] leading-[1.02] text-white mb-5">
+            What organic growth<br />
+            <span className="text-gradient">actually looks like.</span>
           </h2>
-          <p className="text-white/35 text-[17px] max-w-[520px] mx-auto leading-relaxed">
-            SEO content compounds. Every post keeps generating traffic and leads — months after delivery.
+          <p className="text-white/35 text-[17px] max-w-[560px] mx-auto leading-relaxed">
+            SEO content compounds — every post keeps generating traffic and leads months after delivery.
+            These are typical outcomes from AI-powered SEO programs in B2B SaaS.
           </p>
         </motion.div>
+
+        <div
+          role="note"
+          className="max-w-2xl mx-auto mb-10 flex items-start gap-3 rounded-xl border border-amber-400/25 bg-amber-400/[0.06] px-5 py-4 text-left"
+        >
+          <span aria-hidden className="mt-[1px] flex-shrink-0 w-5 h-5 rounded-full border border-amber-400/40 text-amber-300 text-[11px] font-bold flex items-center justify-center">i</span>
+          <p className="text-amber-100/80 text-[13px] leading-relaxed">
+            <strong className="text-amber-200 font-semibold">Illustrative examples, not ScriptaSEO client results.</strong>{" "}
+            The figures and case studies below are benchmarks from publicly documented AI-assisted SEO programs in
+            B2B SaaS. Your outcomes depend on your niche, product, and timeline.
+          </p>
+        </div>
 
         {/* Stat cards */}
         <motion.div
@@ -157,8 +170,8 @@ export default function Results() {
           })}
         </motion.div>
 
-        <p className="text-center mt-8 text-white/12 text-[11px]">
-          Typical outcomes for B2B SaaS companies using AI-powered content strategies. Individual results vary.
+        <p className="text-center mt-8 text-white/45 text-[12px] max-w-2xl mx-auto leading-relaxed">
+          Illustrative benchmarks — not ScriptaSEO client results.
         </p>
       </div>
     </section>

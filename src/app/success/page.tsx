@@ -9,7 +9,7 @@ export default function SuccessPage() {
         <p className="text-zinc-400 leading-relaxed mb-8">
           Welcome to Scripta. Check your inbox — your onboarding brief arrives in the next 5 minutes. First content drops within 14 days.
         </p>
-        <a href="/" className="text-indigo-400 hover:text-indigo-300 text-sm transition-colors">
+        <a href="/" className="text-[#2997ff] hover:text-[#64d2ff] text-sm transition-colors">
           ← Back to Scripta
         </a>
       </div>

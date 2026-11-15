@@ -1,24 +1,141 @@
 @import "tailwindcss";
 
+/* ── Design tokens — Apple-inspired premium ─────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #09090b;
+  --bg:          #000000;
+  --surface:     #0d0d0d;
+  --surface-2:   #161616;
+  --border:      rgba(255, 255, 255, 0.08);
+  --accent:      #0a84ff;
+  --accent-lt:   #2997ff;
+  --accent-glow: rgba(10, 132, 255, 0.22);
+  --text:        #f5f5f7;
+  --text-2:      #a1a1a6;
+  --text-3:      #6e6e73;
 }
 
-* { box-sizing: border-box; }
+/* ── Reset ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  overflow-x: hidden;
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+/* ── Grain overlay ───────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
+
+/* ── Focus ───────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Utilities ───────────────────────────────────────────────────── */
+.tabular { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-geist-mono), ui-monospace, monospace; }
+
+/* Blueprint / dot grid */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ── Gradient text ───────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(180deg, #ffffff 0%, #b0b0b5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.glow { box-shadow: 0 0 80px rgba(99, 102, 241, 0.15); }
+.text-gradient-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #9a9aa0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-green {
+  background: linear-gradient(180deg, #d7ffec 0%, #30d158 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass surfaces ──────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.glass-accent {
+  background: rgba(10, 132, 255, 0.06);
+  border: 1px solid rgba(10, 132, 255, 0.22);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+}
+
+/* ── Highlight card border (replaces animated rainbow) ───────────── */
+.border-animated {
+  background: linear-gradient(180deg, rgba(10, 132, 255, 0.55), rgba(10, 132, 255, 0.05));
+  padding: 1px;
+  border-radius: 1.25rem;
+}
+
+/* ── Subtle button glow ──────────────────────────────────────────── */
+@keyframes btn-glow {
+  0%,  100% { box-shadow: 0 0 24px rgba(10, 132, 255, 0.18); }
+  50%        { box-shadow: 0 0 40px rgba(10, 132, 255, 0.32); }
+}
+.btn-glow { animation: btn-glow 3.2s ease-in-out infinite; }
+
+/* ── Logo scroll ─────────────────────────────────────────────────── */
+@keyframes logo-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.logo-scroll { animation: logo-scroll 28s linear infinite; }
+.logo-scroll:hover { animation-play-state: paused; }
+
+/* ── Reduced motion ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+    scroll-behavior:           auto   !important;
+  }
+}
+
