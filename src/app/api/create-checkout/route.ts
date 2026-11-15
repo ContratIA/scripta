@@ -45,12 +45,12 @@ export async function POST(req: NextRequest) {
       success_url: `${process.env.NEXT_PUBLIC_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_URL}/#pricing`,
       billing_address_collection: "required",
-      customer_creation: "always",
       metadata: { plan },
     })
 
     return NextResponse.json({ url: session.url })
-  } catch {
+  } catch (err) {
+    console.error("create-checkout failed:", err instanceof Error ? err.message : err)
     return NextResponse.json({ error: "Failed to create session" }, { status: 500 })
   }
 }
