@@ -61,16 +61,56 @@ Requirements:
   return { keyword, outline, post }
 }
 
-// Mock client for demo (replace with real client DB)
+// Cliente demo — solo se usa si todavía no hay ningún cliente real pagando.
 const DEMO_CLIENTS = [
   { id: "demo", domain: "example-saas.com", niche: "project management SaaS", postsPerMonth: 4 }
 ]
+
+const PLAN_POSTS = { starter: 4, growth: 8, scale: 16 }
+
+// Clientes reales = suscripciones activas en Stripe (cuenta "Scripta").
+// No dependemos de un fichero local porque las funciones de Vercel son
+// efímeras: un webhook no puede "guardar" un cliente en disco de forma fiable.
+async function getRealClients() {
+  const key = process.env.STRIPE_SECRET_KEY
+  if (!key || key === "sk_test_placeholder") {
+    console.log("  (sin STRIPE_SECRET_KEY, usando cliente demo)")
+    return []
+  }
+  const Stripe = (await import("stripe")).default
+  const stripe = new Stripe(key)
+
+  const subs = await stripe.subscriptions.list({ status: "active", limit: 100, expand: ["data.customer", "data.items.data.price"] })
+  const clients = []
+  for (const sub of subs.data) {
+    const customer = sub.customer
+    if (!customer || typeof customer === "string" || customer.deleted) continue
+    const email = customer.email
+    if (!email) continue
+    const domain = email.split("@")[1]
+    const priceId = sub.items.data[0]?.price?.id
+    const plan =
+      priceId === process.env.STRIPE_STARTER_PRICE_ID ? "starter" :
+      priceId === process.env.STRIPE_SCALE_PRICE_ID ? "scale" : "growth"
+    clients.push({
+      id: sub.id,
+      domain,
+      niche: sub.metadata?.niche || "B2B SaaS",
+      postsPerMonth: PLAN_POSTS[plan] || 4,
+    })
+  }
+  return clients
+}
 
 async function main() {
   const today = new Date().toISOString().split("T")[0]
   console.log(`\n🚀 Content producer starting — ${today}`)
 
-  for (const client of DEMO_CLIENTS) {
+  const realClients = await getRealClients()
+  const clients = realClients.length > 0 ? realClients : DEMO_CLIENTS
+  if (realClients.length === 0) console.log("  ⚠ Sin clientes reales todavía — generando solo el post demo")
+
+  for (const client of clients) {
     console.log(`\nProcessing client: ${client.domain}`)
     
     const clientDir = join(OUTPUT_DIR, client.id, today)

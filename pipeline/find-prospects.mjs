@@ -49,8 +49,24 @@ function getMockProspects() {
   ]
 }
 
+// Dominios que NUNCA son un prospect real (medios, foros, redes, agregadores).
+// Antes solo se excluía linkedin/twitter, así que la búsqueda devolvía artículos
+// de dev.to/medium.com y el email generado era "hello@dev.to" — basura no enviable.
+const EXCLUDED_DOMAINS = new Set([
+  "linkedin.com", "twitter.com", "x.com", "medium.com", "dev.to", "reddit.com",
+  "substack.com", "quora.com", "producthunt.com", "github.com", "youtube.com",
+  "facebook.com", "instagram.com", "wikipedia.org", "notion.so", "wordpress.com",
+  "blogspot.com", "hashnode.dev", "stackoverflow.com", "news.ycombinator.com",
+  "indiehackers.com", "crunchbase.com", "glassdoor.com", "angel.co", "wellfound.com",
+])
+
 function extractDomain(url) {
   try { return new URL(url).hostname.replace("www.", "") } catch { return null }
+}
+
+function isExcluded(domain) {
+  if (!domain) return true
+  return [...EXCLUDED_DOMAINS].some((bad) => domain === bad || domain.endsWith(`.${bad}`))
 }
 
 async function main() {
@@ -64,7 +80,7 @@ async function main() {
       const results = await searchBrave(query)
       for (const r of results) {
         const domain = extractDomain(r.url)
-        if (domain && !seen.has(domain) && !domain.includes("linkedin") && !domain.includes("twitter")) {
+        if (domain && !seen.has(domain) && !isExcluded(domain)) {
           seen.add(domain)
           prospects.push({
             domain,
