@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { timingSafeEqual } from "crypto"
 
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN!
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
@@ -99,7 +100,21 @@ async function handleCommand(cmd: string) {
   }
 }
 
+// Telegram envía el secret_token registrado en setWebhook en este header.
+// Cerrado por defecto: sin TELEGRAM_WEBHOOK_SECRET configurado, se rechaza todo.
+function isFromTelegram(req: NextRequest): boolean {
+  const expected = process.env.TELEGRAM_WEBHOOK_SECRET
+  const got = req.headers.get("x-telegram-bot-api-secret-token")
+  if (!expected || !got) return false
+  const a = Buffer.from(got)
+  const b = Buffer.from(expected)
+  return a.length === b.length && timingSafeEqual(a, b)
+}
+
 export async function POST(req: NextRequest) {
+  if (!isFromTelegram(req)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+  }
   try {
     const body = await req.json()
     const text: string = body?.message?.text?.trim() ?? ""
