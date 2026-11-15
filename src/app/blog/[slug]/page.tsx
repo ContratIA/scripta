@@ -8,8 +8,9 @@ export async function generateStaticParams() {
   return getAllPosts().map(p => ({ slug: p.slug }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getPost(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = getPost(slug)
   if (!post) return {}
   return {
     title: `${post.title} | ScriptaSEO Blog`,
@@ -131,8 +132,9 @@ function renderContent(content: string) {
   return elements
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPost(params.slug)
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getPost(slug)
   if (!post) notFound()
 
   const jsonLd = {
